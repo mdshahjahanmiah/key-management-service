@@ -25,9 +25,9 @@ func Load() (Config, error) {
 	securityLevel := fs.String("security.level", "medium", "the security level to use for the pairing parameters. Possible values are 'low', 'medium', 'high'")
 
 	thresholdConfig := ThresholdConfig{}
-	fs.BoolVar(&thresholdConfig.Enabled, "thresholdconfig.enabled", false, "whether threshold encryption is enabled or not")
-	fs.IntVar(&thresholdConfig.Threshold, "thresholdconfig.threshold", 2, "the threshold number of shares required to reconstruct the secret. For instance threshold 3 means that any 3 out of the total number of shares can be used to reconstruct the secret")
-	fs.IntVar(&thresholdConfig.TotalShares, "thresholdconfig.shares", 3, "the total number of shares to be generated for instance n = 5 means that the secret will be split into 5 shares")
+	fs.BoolVar(&thresholdConfig.Enabled, "thresholdconfig.enabled", true, "whether threshold encryption is enabled or not")
+	fs.IntVar(&thresholdConfig.Threshold, "thresholdconfig.threshold", 4, "the threshold number of shares required to reconstruct the secret. For instance threshold 3 means that any 3 out of the total number of shares can be used to reconstruct the secret")
+	fs.IntVar(&thresholdConfig.TotalShares, "thresholdconfig.shares", 5, "the total number of shares to be generated for instance n = 5 means that the secret will be split into 5 shares")
 
 	loggerConfig := logging.LoggerConfig{}
 	fs.StringVar(&loggerConfig.CommandHandler, "logger.handler.type", "json", "handler type e.g json, otherwise default will be text type")
